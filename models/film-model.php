@@ -1,8 +1,9 @@
 <?php
 // Model
-function getConnection(){
+function getConnection()
+{
 	try{
-       $conn = new PDO('mysql:host=localhost;dbname=u0123456', 'u0123456', '01jan96');
+       $conn = new PDO('mysql:host=localhost;dbname=cit2202', 'cit2202', 'letmein');
        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 	}
 	catch (PDOException $exception)
@@ -38,13 +39,14 @@ function getFilmById($filmId)
 	return $film;
 }
 
-function saveFilm($title, $year, $duration){
+function saveFilm($title, $year, $duration, $certId){
 	$conn = getConnection();
-	$query="INSERT INTO films (id, title, year, duration) VALUES (NULL, :title, :year, :duration)";
+	$query="INSERT INTO films (id, title, year, duration, certificate_id) VALUES (NULL, :title, :year, :duration, :certId)";
 	$stmt=$conn->prepare($query);
 	$stmt->bindValue(':title', $title);
 	$stmt->bindValue(':year', $year);
 	$stmt->bindValue(':duration', $duration);
+	$stmt->bindValue(':certId', $certId);
 	$stmt->execute();
 	closeConnection($conn);
 }

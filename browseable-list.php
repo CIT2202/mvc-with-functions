@@ -15,8 +15,6 @@ $films = $resultset->fetchAll();
 $conn=NULL;
 
 ?>
-
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -24,20 +22,17 @@ $conn=NULL;
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 </head>
 <body>
-<ul>
-<li><a href="create.php">Create</a></li>
-<li><a href="list.php">Read</a></li>
-<li><a href="edit-list.php">Update</a></li>
-<li><a href="delete-list.php">Delete</a></li>
-</ul>
+	<ul>
 <?php
 
 //loop over the array of films
 foreach ($films as $film) {
-    echo "<p>";
-    echo "<a href='details.php?id=".$film['id']."'>";
-    echo $film["title"];
-    echo "</a>";
-    echo "</p>";
+    echo "<li>";
+    echo "<a href='details.php?id={$film["id"]}'>{$film["title"]}</a>";
+    echo "</li>";
 }
+
 ?>
+</ul>
+</body>
+</html>
