@@ -1,24 +1,22 @@
 # MVC with Functions
 This practical looks at moving from an application built using flat PHP files to an MVC structure that uses functions to structure code. You need a good grasp of basic function concepts - arguments, parameters, returning values etc. before attempting this.
-* We will use the solution from week 5, CRUD functionality using the films database.
-* If you don't have this work, you can download it from https://github.com/CIT2202/films-single-table-crud/tree/solutions.
-* You should have the films database. If you don't, you can download it from https://github.com/CIT2202/sql-joins/blob/master/films-db.sql. Import this table using phpmyadmin and check it has worked.
-* Change the connection settings in *browseable-list.php* so that it works with your database.
-* View the page in a web browser to make sure this works.
-* Now try and re-structure this PHP page so that it uses an MVC structure.
 
-If you have a look in the models folder, there is a file, *film-model.php*. This contains a number of functions for working with a film database table e.g. *getFilmsById*, *saveFilm*, *deleteFilms* etc. If you look in the views folder, there is a file *list-view.php*. This file contains code for outputting a list of films.
+* We will base this on the solution from week 5, CRUD functionality using the films database. If you don't have this work, you can view it at https://github.com/CIT2202/films-single-table-crud/tree/solutions.
+* You will need the films database we have worked with previously. If you don't, you can download it from https://github.com/CIT2202/sql-joins/blob/master/films-db.sql. Import this table using phpmyadmin and check it has worked.
 
-* Change *browseable-list.php* so that it includes *film-model.php* and calls the *getAllFilms* function.
-* Change *browseable-list.php* so that it loads *list-view.php* to display the list of films.
+I have done quite a lot of the work for you already. If you have a look in the models folder, there is a file, *film-model.php*. This contains a number of functions for working with a film database table e.g. *getFilmById*, *saveFilm*, *deleteFilms* etc. If you look in the views folder, there is a file *list-view.php*. This file contains code for outputting a list of films.
 
- The code in *browseable-list.php* will then look like the following:
+* Change the connection settings in *film-model.php* so they match your database.
+* Open *browseable-list.php* in a web browser. Make sure it works.
+* Open *browseable-list.php* in a text editor. See how it uses both *film-model.php* and *list-view.php*
 
 ```php
+<?php
 include "models/film-model.php";
-$films=getAllFilms();
-$title="List all films";
+$films = getAllFilms();
+$title = "List all films";
 include "views/list-view.php";
+?>
 ```
 
 * Take a moment to really understand how the code in these files has been organised.
@@ -26,8 +24,8 @@ include "views/list-view.php";
   - *film-model.php* is the model.
   - *list-view.php* is the view.
 
-* Try and do the same for the other pages in the site.
-  * Start with *details.php*.
-  * Call the functions in the *film-model.php* file to retrieve data from the database.
-  * Move the HTML and code for outputting data into a view file, save this in the *views* folder and include this file.
-  * Repeat the above steps for the *create* functionality.
+* Now try and do something similar for a details page i.e. re-factor the *details.php* file we have looked at previously to use an MVC structure.
+  * This page should call the function *getFilmById()* in the *film-model.php* file to retrieve data from the database.
+  * *details.php* should include a view file to output the details for the selected film. You will need to create this file, *details-view.php*. Save this in the *views* folder.
+
+* Try and use an MVC structure to implement create functionality i.e. inserting data into a database. Again there are already functions in the model that will help you.  
