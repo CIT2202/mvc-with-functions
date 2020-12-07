@@ -1,5 +1,5 @@
 <?php
-require_once "models/film-model.php";
+include "models/film-model.php";
 
 //This is a simple example we would normally do some form validation here
 
@@ -11,6 +11,6 @@ $certId=$_POST['certificate'];
 
 saveFilm($title,$year,$duration,$certId);
 
-require "views/save-view.php";
+include "views/save-view.php";
 
 ?>
