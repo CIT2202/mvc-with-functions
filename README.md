@@ -2,7 +2,7 @@
 This practical looks at moving from an application built using flat PHP files to an MVC structure that uses functions to structure code. You need a good grasp of basic function concepts - arguments, parameters, returning values etc. before attempting this.
 
 * We will base this on the solution from week 4, where we implemented CRUD functionality using the films database. If you don't have this work, you can view it at https://github.com/CIT2202/films-single-table-crud/tree/solutions.
-* You will need the films database we have worked with previously. If you don't, you can download it from https://github.com/CIT2202/sql-joins/blob/master/films-db.sql. Import this table using phpmyadmin and check it has worked.
+* You will need the films database we have worked with previously. If you don't have this, you can download it from https://github.com/CIT2202/sql-joins/blob/master/films-db.sql. Import this table using phpmyadmin.
 
 I have done quite a lot of the work for you already. If you have a look in the models folder, there is a file, *film-model.php*. This contains a number of functions for working with a film database table e.g. *getFilmById*, *saveFilm*, *deleteFilms* etc. If you look in the views folder, there is a file *list-view.php*. This file contains code for outputting a list of films.
 
@@ -24,7 +24,7 @@ include "views/list-view.php";
   - *film-model.php* is the model.
   - *list-view.php* is the view.
 
-* Now try and do something similar for a details page i.e. re-factor the *details.php* file we have looked at previously to use an MVC structure.
+* Now try and do something similar for a details page i.e. re-factor the *details.php* file to use an MVC structure.
   * This page should call the function *getFilmById()* in the *film-model.php* file to retrieve data from the database.
   * *details.php* should include a view file to output the details for the selected film. You will need to create this file, *details-view.php*. Save this in the *views* folder.
 
